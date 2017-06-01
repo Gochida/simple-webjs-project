@@ -5,9 +5,9 @@ var gulp = require('gulp'),
 
 gulp.task('js', function(){
     return gulp.src('src/*.js')
-            .pipe(browserify()
+            .pipe(browserify())
             .pipe(uglify())
-            .pipe(gulp.dest('dist/js')));
+            .pipe(gulp.dest('dist/js'));
 })
 
 gulp.task('reload', ['js'], function(done) {
