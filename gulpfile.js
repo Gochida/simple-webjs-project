@@ -13,7 +13,7 @@ gulp.task('js', function(){
             .pipe(gulp.dest('dist/js'));
 })
 
-gulp.task('reload', ['js'], function(done) {
+gulp.task('reload', function(done) {
     browserSync.reload();
     done();
 });
@@ -28,5 +28,6 @@ gulp.task('default', ['js'], function(){
     });
 
     //watch js files for changes
+    gulp.watch(["src/*.js"], ['js'])
     gulp.watch(["dist/**/*.*"], ['reload']);
 })
