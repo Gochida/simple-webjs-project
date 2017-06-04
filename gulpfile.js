@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    gutil = require('gulp-util'),
     uglify = require('gulp-uglify'),
     browserify = require('gulp-browserify'),
     browserSync = require('browser-sync');
@@ -6,7 +7,9 @@ var gulp = require('gulp'),
 gulp.task('js', function(){
     return gulp.src('src/*.js')
             .pipe(browserify())
+            .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
             .pipe(uglify())
+            .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
             .pipe(gulp.dest('dist/js'));
 })
 
@@ -25,5 +28,5 @@ gulp.task('default', ['js'], function(){
     });
 
     //watch js files for changes
-    gulp.watch(["src/*.js", "dist/*.html"], ['reload']);
+    gulp.watch(["dist/**/*.*"], ['reload']);
 })
