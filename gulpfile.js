@@ -67,7 +67,7 @@ gulp.task('default', ['js'], function () {
   })
 
     // watch js files for changes
-  gulp.watch([`src/*.js`], ['js'])
-  gulp.watch([`site/**/*.*`], ['reload'])
+  gulp.watch([`src/js/*.js`], ['js'])
   gulp.watch(['src/less/*.less'], ['less', 'reload'])
+  gulp.watch([`site/**/*.*`], ['reload'])
 })
