@@ -18,7 +18,7 @@ function handleError(err, self) {
 // Handle transpiling Node.js code to browser compatible code that's been minified
 gulp.task('js', function () {
   let isErr = false
-  return gulp.src('src/*.js')
+  return gulp.src('src/js/*.js')
     .pipe(browserify())
     .on('error', function (err) { 
       handleError(err, this)
